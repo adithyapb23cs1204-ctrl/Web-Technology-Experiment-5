@@ -1,7 +1,11 @@
 import axios from 'axios';
 
+const rawUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+// Normalize: ensures base URL always ends with /api whether provided with or without it
+const baseURL = rawUrl.endsWith('/api') ? rawUrl : `${rawUrl.replace(/\/+$/, '')}/api`;
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api'
+  baseURL
 });
 
 // Request interceptor to add JWT token from localStorage
