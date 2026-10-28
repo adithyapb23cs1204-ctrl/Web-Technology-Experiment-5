@@ -33,4 +33,4 @@ This repository contains the complete full-stack web application for TechFest 20
    ```
 
 <!-- Feature: Added by feature-page branch -->
-Version: main-branch-target
+Version: conflict-test-target
