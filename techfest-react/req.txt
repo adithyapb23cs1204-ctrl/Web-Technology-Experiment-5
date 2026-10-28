@@ -1,0 +1,82 @@
+TechFest 2026 Portal as a Single Page Application using React 
+Aim 
+To develop the TechFest portal as a React SPA using reusable components, props, state, hooks (useState, 
+useEffect), React Router, Context API and API integration. 
+Theory / Background 
+A Single Page Application (SPA) loads one HTML page and updates content dynamically as the user navigates, 
+without full page reloads — unlike a Multi-Page Application (MPA) that fetches a new page each time. 
+React builds UIs from components. It keeps a Virtual DOM — a lightweight copy of the real DOM — and updates 
+only the changed parts, making rendering efficient. 
+JSX lets you write HTML-like syntax in JavaScript. Components receive read-only data through props and manage 
+internal, changeable data through state (useState). 
+useEffect runs side effects (data fetching, timers) after render; its dependency array controls when it re-runs, 
+and a returned cleanup function cancels timers/subscriptions. 
+React Router provides client-side navigation (Link, Routes, Route, useParams, useNavigate). The Context API 
+shares data (theme, cart) across components without passing props through every level (prop drilling). 
+Software / Tools Required 
+• Node.js LTS and npm 
+• Vite (npm create vite@latest) 
+• Visual Studio Code 
+• Google Chrome with the React Developer Tools extension 
+• react-router-dom and axios (installed through npm) 
+Question 
+Develop the TechFest 2026 Portal as a Single Page Application (SPA) using React. 
+1. Create a React project and organize the application into reusable components. 
+2. Design separate pages for Home, Events, Registration, Gallery, and Contact. 
+3. Implement navigation between pages without reloading the browser. 
+4. Display event information dynamically from an array of objects. 
+5. Design a registration form using controlled components. 
+6. Fetch event details from a public API and display the results with appropriate loading and error 
+messages. 
+7. Implement a theme-switching feature that can be accessed from any page of the application. 
+8. Display event cards with suitable filtering or searching options. 
+9. Ensure proper state management throughout the application. 
+10. Organize the project following recommended React development practices.
+Procedure (Step by Step)
+1. Make sure Node.js is installed. Open a terminal (in VS Code use Terminal → New Terminal) and type 
+node -v then npm -v. If both show version numbers, you are ready. If not, install Node.js LTS first. 
+2. Create the React project: in the terminal type npm create vite@latest techfest-react and press Enter. 
+When it asks, choose React, then JavaScript. 
+3. Go into the project and install: type cd techfest-react, then npm install, then npm run dev. A local 
+address like http://localhost:5173 appears — open it in the browser to see the starter React page. 
+4. Open this techfest-react folder in VS Code. The code you edit is inside the src folder. Open src/App.jsx 
+— this is the main screen. 
+5. Learn the structure: inside src, make two folders — components (for small reusable parts) and pages 
+(for full screens). You will place your files here. 
+6. Install the tools you need. Stop the server (Ctrl+C) and type: npm install react-router-dom axios . Then 
+start again with npm run dev. 
+7. Create your first component: in components, make a file Navbar.jsx. Inside, write a function that 
+returns the menu (Home, Events, Register, Gallery, Contact) and export it. A component is just a 
+function that returns what to show. 
+8. Set up page switching (routing): in App.jsx, wrap everything with the router and list your routes — for 
+example a route "/" showing the Home page, "/events" showing Events, and so on, plus a "*" route that 
+shows a "Page Not Found" screen. Use <Link> for the menu so pages change without reloading. 
+9. Create an EventCard component that receives one event's details (name, fee, seats) as props and shows 
+them. "Props" simply means the data passed into the component from outside. 
+10. Create an EventList that has the array of events and shows one EventCard for each, using the map 
+function. Give each card a unique key so React can track them. 
+11. Add memory to a card using state: at the top of EventCard write const [seatsLeft, setSeatsLeft] = 
+useState(seats); . Show a Register button that reduces seatsLeft by one on each click, and when it 
+reaches 0 disable the button and show SOLD OUT. 
+12. Add a search box and a category dropdown on the Events page and keep what the user typed/selected 
+in state, then show only the matching cards. This is "state management". 
+13. Build the registration form as a controlled form: every input's value comes from state and updates 
+through an onChange handler. Check the values when Submit is clicked, show errors, and on success 
+move to a confirmation page. 
+14. Load events from the internet using useEffect: this special function runs when the page opens. Inside 
+it use fetch (or axios) to get the data, then store it in state. While waiting, show "Loading..."; if it fails, 
+show an error message. 
+15. Add a Theme switch (light/dark) using the Context API: create a ThemeContext, wrap the app in its 
+Provider, and read it in the Navbar with a button that flips the theme. The whole app changes colour 
+without passing the setting into every component. 
+16. Add a shared cart the same way with a CartContext: adding an event from any card increases a number 
+badge on the Navbar, and a Cart page lists the chosen events and total fee. 
+17. Test everything: click through all pages and confirm the browser never reloads (the page does not go 
+white). Try a wrong address to see the Not-Found page. 
+18. Take screenshots for the record: each page, the loading and error states, a SOLD OUT card, and both 
+the light and dark themes. 
+Expected Output 
+• A working SPA in which pages switch instantly without reload and a wrong URL shows a Not-Found page. 
+• Event cards with live search/filter/sort, seat counts and SOLD OUT states. 
+• Data loaded from an API with loading/error handling; theme toggle and cart badge working across every 
+page.

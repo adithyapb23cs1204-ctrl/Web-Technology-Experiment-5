@@ -1,0 +1,44 @@
+name: TechFest 2026 CI Pipeline
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+          cache-dependency-path: |
+            techfest-backend/package-lock.json
+            techfest-react/package-lock.json
+
+      - name: Install Backend Dependencies
+        run: |
+          cd techfest-backend
+          npm install
+
+      - name: Run Backend Tests (Security & Sanity)
+        run: |
+          cd techfest-backend
+          npm test
+
+      - name: Install Frontend Dependencies
+        run: |
+          cd techfest-react
+          npm install
+
+      - name: Build Frontend Application
+        run: |
+          cd techfest-react
+          npm run build

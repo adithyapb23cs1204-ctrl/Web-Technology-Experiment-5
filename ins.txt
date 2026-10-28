@@ -1,0 +1,7 @@
+Backend: cd techfest-backend && npm start (runs on http://localhost:5000) 
+Frontend: cd techfest-react && npm run dev (runs on http://localhost:5173) 
+Admin login: admin@techfest.com / admin123 
+Seed data: cd techfest-backend && node seed.js 
+Smoke test: cd techfest-backend && node smoke-test.js
+
+User login: tom@email.com /tom123

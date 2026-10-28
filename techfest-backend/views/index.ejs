@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechFest 2026 API</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f8fafc;
+      color: #1e293b;
+    }
+    h1 {
+      color: #0f172a;
+    }
+    .container {
+      background: #ffffff;
+      padding: 24px;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      max-width: 600px;
+    }
+    ul {
+      line-height: 1.8;
+      padding-left: 20px;
+    }
+    code {
+      background: #e2e8f0;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>TechFest 2026 API is running</h1>
+    <p>Available endpoints:</p>
+    <ul>
+      <li><code>POST /api/auth/signup</code> - Register user</li>
+      <li><code>POST /api/auth/login</code> - Login user & receive token</li>
+      <li><code>GET /api/events</code> - List all events</li>
+      <li><code>GET /api/events/:id</code> - Get single event</li>
+      <li><code>POST /api/events</code> - Create event (Admin)</li>
+      <li><code>PUT /api/events/:id</code> - Update event (Admin)</li>
+      <li><code>DELETE /api/events/:id</code> - Delete event (Admin)</li>
+      <li><code>POST /api/registrations</code> - Register for event</li>
+      <li><code>GET /api/registrations/my</code> - View my registrations</li>
+      <li><code>DELETE /api/registrations/:id</code> - Cancel registration</li>
+    </ul>
+  </div>
+</body>
+</html>
