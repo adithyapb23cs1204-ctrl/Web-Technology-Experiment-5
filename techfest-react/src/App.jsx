@@ -62,7 +62,7 @@ function App() {
   return (
     <Router>
       <Navbar user={user} onLogout={handleLogout} />
-      <div className="main-content">
+      <main className="main-content">
         <Suspense fallback={<LoadingFallback />}>
           <Routes>
             <Route path="/" element={<Navigate to="/events" replace />} />
@@ -77,7 +77,7 @@ function App() {
             <Route path="*" element={<div className="container"><h2>Page Not Found</h2></div>} />
           </Routes>
         </Suspense>
-      </div>
+      </main>
     </Router>
   );
 }

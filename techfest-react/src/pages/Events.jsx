@@ -64,13 +64,26 @@ function Events() {
       )}
 
       <div className="filter-bar">
+        <label htmlFor="event-search" style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0,0,0,0)', border: 0 }}>
+          Search events
+        </label>
         <input
+          id="event-search"
           type="text"
           placeholder="Search events..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
+          aria-label="Search events"
         />
-        <select value={category} onChange={(e) => setCategory(e.target.value)}>
+        <label htmlFor="category-select" style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0,0,0,0)', border: 0 }}>
+          Filter events by category
+        </label>
+        <select 
+          id="category-select"
+          value={category} 
+          onChange={(e) => setCategory(e.target.value)}
+          aria-label="Filter events by category"
+        >
           <option value="all">All Categories</option>
           <option value="technical">Technical</option>
           <option value="cultural">Cultural</option>

@@ -12,7 +12,7 @@ function Navbar({ user, onLogout }) {
   };
 
   return (
-    <nav className="navbar">
+    <nav className="navbar" aria-label="Main Navigation">
       <div className="nav-brand">
         <Link to="/events">TechFest 2026</Link>
       </div>

@@ -17,44 +17,45 @@ export const Gallery = () => {
     : GALLERY_ITEMS.filter(item => item.category === filter);
 
   return (
-    <div>
+    <div className="container">
       <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-        <h1 style={{ fontSize: '2.25rem', marginBottom: '0.5rem' }}>
-          TechFest <span className="gradient-text">Photo Gallery</span>
-        </h1>
-        <p style={{ color: 'var(--text-secondary)' }}>
+        <h2 style={{ fontSize: '2rem', marginBottom: '0.5rem', color: '#0f172a' }}>
+          TechFest Photo Gallery
+        </h2>
+        <p style={{ color: '#64748b', fontSize: '1rem' }}>
           Snapshots of innovation, teamwork, and excitement from past editions.
         </p>
       </div>
 
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', gap: '0.6rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
         {['All', 'Robotics', 'Hackathon', 'Workshops', 'Highlights'].map(cat => (
           <button
             key={cat}
-            className={`btn ${filter === cat ? 'btn-primary' : 'btn-secondary'}`}
+            className={filter === cat ? 'btn-primary' : 'btn-secondary'}
             onClick={() => setFilter(cat)}
-            style={{ padding: '0.4rem 1rem', fontSize: '0.85rem' }}
+            aria-pressed={filter === cat}
+            style={{ padding: '0.45rem 1.1rem', fontSize: '0.85rem' }}
           >
             {cat}
           </button>
         ))}
       </div>
 
-      <div className="grid">
+      <div className="gallery-grid">
         {filteredItems.map(item => (
-          <div key={item.id} className="card">
-            <div className="card-img-wrapper" style={{ height: '220px' }}>
+          <div key={item.id} className="gallery-card">
+            <div className="gallery-img-wrapper">
               <img 
                 src={item.img} 
-                alt={`TechFest event - ${item.title}`} 
-                className="card-img" 
+                alt={`TechFest highlight - ${item.title}`} 
+                className="gallery-img" 
                 loading="lazy" 
                 decoding="async" 
               />
-              <span className="category-tag">{item.category}</span>
+              <span className="gallery-tag">{item.category}</span>
             </div>
-            <div className="card-body" style={{ padding: '1rem' }}>
-              <h3 style={{ fontSize: '1.05rem' }}>{item.title}</h3>
+            <div className="gallery-body">
+              <h3>{item.title}</h3>
             </div>
           </div>
         ))}
