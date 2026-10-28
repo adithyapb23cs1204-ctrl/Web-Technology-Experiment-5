@@ -1,4 +1,4 @@
-# TechFest 2026 Portal (main branch edit)
+# TechFest 2026 Portal - Full Stack MERN Application (Resolved)
 
 This repository contains the complete full-stack web application for TechFest 2026, developed as part of **Experiment 5: Security, Version Control, CI/CD and Cloud Deployment**.
 
